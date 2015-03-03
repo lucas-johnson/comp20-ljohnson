@@ -13,9 +13,11 @@ function init() {
 
 		img.addEventListener("load", function() {
 	
-			ctx.drawImage(img, 323, 2, 464, 139, 0, 0, 464, 139);
+			ctx.drawImage(img, 320, 1, 464, 138, 0, 0, 464, 138);
 
-			ctx.drawImage(img, 83, 23, 13, 13, 34, 34, 13, 13);
+			ctx.drawImage(img, 83, 23, 13, 13, 30, 30, 13, 13);
+
+			//ctx.drawImage(img, 0, 0, 785, 280, 0, 0, 785, 280);
 
 		}, false);
 
