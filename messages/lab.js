@@ -11,7 +11,7 @@ function parse(){
 function parseData(){
 	
 
-		if(request.Status == 200){
+		if(request.status == 200){
 
 			converted = JSON.parse(request.responseText);
 
