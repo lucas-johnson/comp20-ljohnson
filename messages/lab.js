@@ -10,11 +10,13 @@ function parse(){
 
 function parseData(){
 	
-	if(request.status == 200){
+	if(request.status == 200 && request.readyState == 4){
 
 		converted = JSON.parse(request.responseText);
 
-		document.getElementById("messages").innerHTML += "<p>" + converted[0]['content'] + " " + converted[1]['username'];
+		for(int i = 0; i < 2; i++){
+			document.getElementById("messages").innerHTML += "<p>" + converted[i]['content'] + " " + converted[i]['username'];
+		}
 
 	}else{
 		window.alert("Error!!!");
