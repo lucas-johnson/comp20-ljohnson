@@ -1,1 +1,7 @@
-/* Your CSS here... */
+.messages{
+	background-color: green;
+}
+.span{
+	font-size: 8px;
+}
+
