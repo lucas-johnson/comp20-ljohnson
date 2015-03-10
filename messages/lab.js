@@ -1,12 +1,3 @@
-function parseData(){
-	converted = data.json.parse(request.responseText);
-
-	for(i = 0; i < 2; i++){
-		index.html.getElementByID("messages").innerHTML += "<p>" + converted[i]["id"];
-	}
-	
-}
-
 function parse(){
 	request = new XMLHttpRequest(); 
 
@@ -15,5 +6,14 @@ function parse(){
 	request.onreadystatechange = parseData;
 
 	request.send();
+}
+
+function parseData(){
+	converted = JSON.parse(request.responseText);
+
+	for(i = 0; i < 2; i++){
+		index.html.getElementByID("messages").innerHTML += "<p>" + converted[i]["id"];
+	}
+	
 }
 
