@@ -10,7 +10,6 @@ function parse(){
 
 function parseData(){
 	
-	if(request.readyState == 4){
 
 		if(request.Status == 200){
 
@@ -21,6 +20,5 @@ function parseData(){
 			}
 
 		}
-	}
 }
 
