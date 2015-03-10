@@ -15,10 +15,10 @@ function parseData(){
 		converted = JSON.parse(request.responseText);
 
 		for(i = 0; i < 2; i++){
-			index.html.getElementByID("messages").innerHTML += "<p>" + converted[i]["id"];
+			document.getElementByID("messages").innerHTML += "<p>" + converted[i]["id"];
 		}
 	}else{
-		window.alert("Error!!!")
+		window.alert("Error!!!");
 	}
 }
 
