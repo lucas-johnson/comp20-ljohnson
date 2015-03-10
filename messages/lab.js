@@ -11,6 +11,8 @@ function parse(){
 function parseData(){
 	
 
+	if(request.readyState ==4){
+
 		if(request.status == 200){
 
 			converted = JSON.parse(request.responseText);
@@ -20,5 +22,9 @@ function parseData(){
 			}
 
 		}
+		else{
+			window.alert("ERROR!!!");
+		}
+	}
 }
 
