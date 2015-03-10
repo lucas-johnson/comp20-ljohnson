@@ -1,8 +1,8 @@
 function parseData(){
-	converted = JSON.parse(request.responseText);
+	converted = data.json.parse(request.responseText);
 
 	for(i = 0; i < 2; i++){
-		index.getElementByID("messages").innerHTML += "<p>" + converted[i]["id"];
+		index.html.getElementByID("messages").innerHTML += "<p>" + converted[i]["id"];
 	}
 	
 }
