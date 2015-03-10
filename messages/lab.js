@@ -9,11 +9,16 @@ function parse(){
 }
 
 function parseData(){
-	converted = JSON.parse(request.responseText);
-
-	for(i = 0; i < 2; i++){
-		index.html.getElementByID("messages").innerHTML += "<p>" + converted[i]["id"];
-	}
 	
+	if(request.status == 200){
+
+		converted = JSON.parse(request.responseText);
+
+		for(i = 0; i < 2; i++){
+			index.html.getElementByID("messages").innerHTML += "<p>" + converted[i]["id"];
+		}
+	}else{
+		window.alert("Error!!!")
+	}
 }
 
