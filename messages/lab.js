@@ -2,7 +2,7 @@ function parseData(){
 	converted = JSON.parse(request.responseText);
 
 	for(i = 0; i < 2; i++){
-		indexDiv.innerHTML += "<p>" + converted[i]["id"];
+		index.getElementByID("messages").innerHTML += "<p>" + converted[i]["id"];
 	}
 	
 }
