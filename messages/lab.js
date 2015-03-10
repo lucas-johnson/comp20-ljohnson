@@ -15,7 +15,7 @@ function parseData(){
 		converted = JSON.parse(request.responseText);
 
 		for(i = 0; i < 2; i++){
-			document.getElementById("messages").innerHTML += "<p>" + converted[i]["content"] + " " converted[i]["username"];
+			document.getElementById("messages").innerHTML += "<p>" + converted[i]["content"] + " " + converted[i]["username"];
 		}
 	}else{
 		window.alert("Error!!!");
