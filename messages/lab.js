@@ -10,16 +10,19 @@ function parse(){
 
 function parseData(){
 	
-	if(request.status == 200 && request.readyState == 4){
+	if(request.readyState == 4){
 
-		converted = JSON.parse(request.responseText);
+		if(request.Status == 200){
 
-		for(i = 0; i < 2; i++){
-			document.getElementById("messages").innerHTML += "<p>" + converted[i]['content'] + " " + converted[i]['username'];
+			converted = JSON.parse(request.responseText);
+
+			for(i = 0; i < 2; i++){
+				document.getElementById("messages").innerHTML += "<p>" + converted[i]['content'] + " " + converted[i]['username'];
+			}
+
+		}else{
+			window.alert("Error!!!");
 		}
-
-	}else{
-		window.alert("Error!!!");
 	}
 }
 
