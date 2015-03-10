@@ -20,8 +20,6 @@ function parseData(){
 				document.getElementById("messages").innerHTML += "<p>" + converted[i]['content'] + " " + converted[i]['username'];
 			}
 
-		}else{
-			window.alert("Error!!!");
 		}
 	}
 }
