@@ -15,8 +15,7 @@
 		
 		myLat = 0;
 		myLng = 0;
-		me = new google.maps.LatLng(myLat, myLng);
-
+		
 		mapOptions = {
   			center: me,
   			zoom: 16
@@ -25,9 +24,10 @@
 		function renderMap(){
   			console.log("inside renderMap()");
   			//createMarkers();
-  			me.myLat = myLat;
-  			me.myLng = myLng;
-  			map.panTo(myLat, myLng);
+  			
+  			me = new google.maps.LatLng(myLat, myLng);
+
+  			map.panTo(me);
   		}
 
 		function getMyLocation() {
