@@ -58,7 +58,7 @@
 
 		function parseData(){
 			console.log("got data back");
-			if(request.status == 4){
+			if(request.readyState == 4){
 				if(request.status == 200){
 				console.log("request went through");
 				console.log(responseText);
@@ -101,18 +101,18 @@
 			request.onreadystatechange = parseData();
 			request.send("login=VanRhoden&lat="+myLat+"&lng="+myLng);
 			
-			if(request.status == 1){
+			if(request.readyState == 1){
 				console.log("sent");			
-			}else if(request.status == 2){
+			}else if(request.readyState == 2){
 				console.log("on its way there");
 
-			}else if(request.status == 3){
+			}else if(request.readyState == 3){
 				console.log("on its way back");
-			}else if(request.status == 4){
+			}else if(request.readyState == 4){
 				console.log("request complete");
 				map = new google.maps.Map(document.getElementById("map-canvas"),  mapOptions);
 				getMyLocation();
-			}else if(request.status == 0){
+			}else if(request.readyState == 0){
 				console.log("REQUEST HAS NOT INITIATED");
 			}
 		}
