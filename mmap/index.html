@@ -103,10 +103,12 @@
 
 			}else if(request.status == 3){
 				console.log("on its way back")
-			}else{
+			}else if(request status == 4){
 				console.log("request complete");
 				map = new google.maps.Map(document.getElementById("map-canvas"),  mapOptions);
 				getMyLocation();
+			}else if(request status == 0){
+				console.log("REQUEST HAS NOT INITIATED");
 			}
 		}
 
