@@ -25,11 +25,12 @@
 		function getMyLocation() {
 			console.log("1. In getMyLocation()");
 			if (navigator.geolocation) { // the navigator.geolocation object is supported on your browser
+				console.log("geolocation supported");
 				navigator.geolocation.getCurrentPosition(function(position) {
 						myLat = position.coords.latitude;
 						myLng = position.coords.longitude;
 					});
-
+				console.log("before call to renderMap()");
 				renderMap();
 
 			}
@@ -38,22 +39,23 @@
 			}
 		}
 
-		request = new XMLHttpRequest();
-		request.open("POST", "https://secret-about-box.herokuapp.com/sendLocation", true);
-		request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		request.onreadystatechange = parseData();
-		request.send("login=VanRhoden&lat='+myLat+'&lng='+myLng+'");
+		//request = new XMLHttpRequest();
+		//request.open("POST", "https://secret-about-box.herokuapp.com/sendLocation", true);
+		//request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		//request.onreadystatechange = parseData();
+		//request.send("login=VanRhoden&lat='+myLat+'&lng='+myLng+'");
 
-		function parseData(){
-			if(request.readyState ==4){
-				if(request.status == 200){
-					converted = JSON.parse(request.responseText);
-				}
-			}
-		}
+		//function parseData(){
+		//	if(request.readyState ==4){
+		//		if(request.status == 200){
+		//			converted = JSON.parse(request.responseText);
+		//		}
+		//	}
+		//}
 
 		function createMarkers(){
 			
+			console.log("inside createMarkers()");
 			myPin = new google.maps.Marker({
 				position: me,
 				title: "Here I am"
@@ -68,12 +70,14 @@
 		}
 
   		function renderMap(){
+  			console.log("inside renderMap()");
   			createMarkers();
   			map.panTo(me);
   		}
 		
 		
-		function initialize(){
+		function init(){
+			console.log("Inside init()");
 			map = new google.maps.Map(document.getElementById("map-canvas"),  mapOptions);
 			getMyLocation();
 		}
@@ -82,7 +86,7 @@
 
 </head>
 
- <body onload="initialize();">	
+ <body onload="init()">	
 
 	<div id= "map-canvas"></div>
 
