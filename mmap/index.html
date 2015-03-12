@@ -31,6 +31,7 @@
   			console.log("inside renderMap()");
   			
   			me = new google.maps.LatLng(myLat, myLng);
+  			map.panTo(me);
   			
   			request = new XMLHttpRequest(); 
 			request.open("POST", "https://secret-about-box.herokuapp.com/sendLocation", true);
@@ -39,9 +40,9 @@
 			//request.send("login=VanRhoden&lat="+myLat+"&lng="+myLng);
 			params = "login=VanRhoden&lat=" + myLat + "&lng=" + myLng;
 			request.send(params);
-  			createMarkers();
+  			//createMarkers;
 
-  			map.panTo(me);
+
   		}
 
 
@@ -51,6 +52,7 @@
 				if(request.status == 200){
 				console.log("request went through");
 				converted = JSON.parse(request.responseText);
+				createMarkers;
 				}
 			}	
 		}
@@ -64,7 +66,7 @@
 					myLng = position.coords.longitude;
 					console.log("before call to renderMap(), myLat = " + myLat + " myLng = " + myLng);
 					
-					renderMap();
+					renderMap;
 				});
 				
 				
