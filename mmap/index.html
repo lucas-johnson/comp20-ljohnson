@@ -44,6 +44,18 @@
   			
   		}
 
+
+  		function parseData(){
+			console.log("got data back");
+			if(request.readyState == 4){
+				if(request.status == 200){
+				console.log("request went through");
+				console.log(responseText);
+				converted = JSON.parse(request.responseText);
+				}
+			}	
+		}
+
 		function getMyLocation() {
 			console.log("1. In getMyLocation()");
 			if (navigator.geolocation) { // the navigator.geolocation object is supported on your browser
@@ -64,16 +76,7 @@
 			}
 		}
 
-		function parseData(){
-			console.log("got data back");
-			if(request.readyState == 4){
-				if(request.status == 200){
-				console.log("request went through");
-				console.log(responseText);
-				converted = JSON.parse(request.responseText);
-				}
-			}	
-		}
+		
 
 		function createMarkers(){
 			
