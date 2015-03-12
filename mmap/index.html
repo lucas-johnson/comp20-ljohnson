@@ -29,6 +29,9 @@
 						myLat = position.coords.latitude;
 						myLng = position.coords.longitude;
 					});
+
+				renderMap();
+
 			}
 			else {
 				alert("Geolocation is not supported by your web browser.  What a shame!");
@@ -72,7 +75,7 @@
 		
 		function initialize(){
 			map = new google.maps.Map(document.getElementById("map-canvas"),  mapOptions);
-			renderMap();
+			getMyLocation();
 		}
 
 	</script>
