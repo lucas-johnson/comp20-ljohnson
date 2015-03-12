@@ -97,7 +97,7 @@
 			request.open("POST", "https://secret-about-box.herokuapp.com/sendLocation", true);
 			request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			request.onreadystatechange = parseData();
-			xhr.send("login=VanRhoden&lat="+myLat+"&lng="+myLng);
+			request.send("login=VanRhoden&lat="+myLat+"&lng="+myLng);
 			if(request.status == 1){
 				console.log("sent");			
 			}else if(request.status == 2){
