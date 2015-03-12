@@ -92,9 +92,11 @@
 			console.log("myPin created");
 
 			for(key in converted){
-				console.log("lat = " + converted[key]['lat']);
-				console.log("lng = " + converted[key]['lng']);
-				location = new google.maps.LatLng((converted[key]['lat']), (converted[key]['lng']));
+				//console.log("lat = " + converted[key]['lat']);
+				//console.log("lng = " + converted[key]['lng']);
+				userLat = converted[key]['lat'];
+				userLng = converted[key]['lng'];
+				location = new google.maps.LatLng(userLat, userLng);
 				//me = new google.maps.LatLng(myLat, myLng);
 				marker = new google.maps.Marker({
 					position: location,
