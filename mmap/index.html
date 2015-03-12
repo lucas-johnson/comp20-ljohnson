@@ -18,7 +18,8 @@
 
 		var me = new google.maps.LatLng(myLat, myLng);
 
-		
+		var image = upload.wikimedia.org/wikipedia/en/3/39/Pokeball.PNG
+
 		mapOptions = {
   			center: me,
   			zoom: 16
@@ -73,7 +74,8 @@
 			console.log("inside createMarkers()");
 			myPin = new google.maps.Marker({
 				position: me,
-				title: "Here I am"
+				title: "Here I am",
+				icon: image
 			});
 
 			myPin.setMap(map);
