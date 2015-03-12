@@ -22,6 +22,12 @@
   			zoom: 16
   		};
 
+		function renderMap(){
+  			console.log("inside renderMap()");
+  			createMarkers();
+  			map.panTo(me);
+  		}
+
 		function getMyLocation() {
 			console.log("1. In getMyLocation()");
 			if (navigator.geolocation) { // the navigator.geolocation object is supported on your browser
@@ -55,13 +61,13 @@
 		//	}
 		//}
 
-		function createMarkers(){
+		//function createMarkers(){
 			
-			console.log("inside createMarkers()");
-			myPin = new google.maps.Marker({
-				position: me,
-				title: "Here I am"
-			});
+		//	console.log("inside createMarkers()");
+		//	myPin = new google.maps.Marker({
+		//		position: me,
+		//		title: "Here I am"
+		//	});
 
 			//for(key in converted){
 			//	marker = new google.maps.Marker({
@@ -70,12 +76,6 @@
 			//	});
 			//}
 		}
-
-  		function renderMap(){
-  			console.log("inside renderMap()");
-  			createMarkers();
-  			map.panTo(me);
-  		}
 		
 		
 		function init(){
