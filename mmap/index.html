@@ -32,6 +32,12 @@
   			
   			me = new google.maps.LatLng(myLat, myLng);
 
+  			request = new XMLHttpRequest(); 
+			request.open("POST", 'https://secret-about-box.herokuapp.com/sendLocation', true);
+			request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			request.onreadystatechange = parseData();
+			request.send("login=VanRhoden&lat="+myLat+"&lng="+myLng);
+  			
   			createMarkers();
 
   			map.panTo(me);
@@ -91,32 +97,8 @@
 		
 		
 		function init(){
-			console.log("Inside init()");
-			
-			request = new XMLHttpRequest(); 
-			console.log("request initialized");
-			request.open("POST", 'https://secret-about-box.herokuapp.com/sendLocation', true);
-			console.log("request opened");
-			request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-			console.log("header set");
-			request.onreadystatechange = parseData();
-			request.send("login=VanRhoden&lat="+myLat+"&lng="+myLng);
-			console.log("called send");
-			
-			if(request.readyState == 1){
-				console.log("successful open");			
-			}else if(request.readyState == 2){
-				console.log("on its way there");
-
-			}else if(request.readyState == 3){
-				console.log("on its way back");
-			}else if(request.readyState == 4){
-				console.log("request complete");
-				map = new google.maps.Map(document.getElementById("map-canvas"),  mapOptions);
-				getMyLocation();
-			}else if(request.readyState == 0){
-				console.log("REQUEST HAS NOT INITIATED");
-			}
+			map = new google.maps.Map(document.getElementById("map-canvas"),  mapOptions);
+			getMyLocation();
 		}
 
 	</script>
