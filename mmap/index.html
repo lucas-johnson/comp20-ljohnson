@@ -39,7 +39,7 @@
 		request.open("POST", "https://secret-about-box.herokuapp.com/sendLocation", true);
 		request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		request.onreadystatechange = parseData();
-		request.send(login=VanRhoden&lat=myLat&lng=myLng);
+		request.send("login=VanRhoden&lat='+myLat+'&lng='+myLng+'");
 
 		function parseData(){
 			if(request.readyState ==4){
@@ -58,7 +58,7 @@
 
 			for(key in converted){
 				marker = new google.maps.Marker({
-					position: converted[key]["lat"], converted[key]["lng"]
+					position: converted[key]["lat"], converted[key]["lng"],
 					title: converted[key]["login"]
 				});
 			}
