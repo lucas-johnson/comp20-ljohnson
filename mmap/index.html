@@ -16,7 +16,7 @@
 		me = new google.maps.LatLng(myLat, myLng);
 
 		mapOptions = {
-  			center: me
+  			center: me,
   			zoom: 16
   		};
 
@@ -69,8 +69,6 @@
 		
 		
 		function initialize(){
-			
-
 			map = new google.maps.Map(document.getElementById("map-canvas"),  mapOptions);
 			renderMap();
 		}
