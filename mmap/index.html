@@ -77,11 +77,13 @@
 			myPin.setMap(map);
 
 			for(key in converted){
+				
+				location = new google.maps.LatLng(converted[key]['lat'], converted[key]['lng']);
 				marker = new google.maps.Marker({
-					position: converted[key]['lat'], converted[key]['lng'],
+					position: location,
 					title: converted[key]['login']
 				});
-				marker.setMp(map);
+				marker.setMap(map);
 			}
 		}
 		
