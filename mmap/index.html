@@ -94,12 +94,12 @@
 			for(key in converted){
 				//console.log("lat = " + converted[key]['lat']);
 				//console.log("lng = " + converted[key]['lng']);
-				userLat = converted[key]['lat'];
-				userLng = converted[key]['lng'];
-				location = new google.maps.LatLng(userLat, userLng);
-				//me = new google.maps.LatLng(myLat, myLng);
+				//userLat = converted[key]['lat'];
+				//userLng = converted[key]['lng'];
+				//location = new google.maps.LatLng(userLat, userLng);
+				
 				marker = new google.maps.Marker({
-					position: location,
+					position: {lat: converted[key]['lat'], lng: converted[key]['lng']},
 					title: converted[key]['login']
 				});
 				marker.setMap(map);
