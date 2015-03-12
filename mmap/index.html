@@ -52,7 +52,7 @@
 				if(request.status == 200){
 				console.log("request went through");
 				converted = JSON.parse(request.responseText);
-				createMarkers;
+				createMarkers();
 				}
 			}	
 		}
@@ -66,7 +66,7 @@
 					myLng = position.coords.longitude;
 					console.log("before call to renderMap(), myLat = " + myLat + " myLng = " + myLng);
 					
-					renderMap;
+					renderMap();
 				});
 				
 				
