@@ -31,7 +31,7 @@
   			console.log("inside renderMap()");
   			
   			me = new google.maps.LatLng(myLat, myLng);
-  			map.panTo(me);
+  			
   			request = new XMLHttpRequest(); 
 			request.open("POST", "https://secret-about-box.herokuapp.com/sendLocation", true);
 			request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -40,6 +40,8 @@
 			params = "login=VanRhoden&lat=" + myLat + "&lng=" + myLng;
 			request.send(params);
   			createMarkers();
+
+  			map.panTo(me);
   		}
 
 
