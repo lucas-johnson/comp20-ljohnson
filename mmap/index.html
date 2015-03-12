@@ -60,6 +60,7 @@
 			console.log("got data back");
 			if(request.readyState ==4){
 				if(request.status == 200){
+					console.log(responseText);
 					converted = JSON.parse(request.responseText);
 				}
 			}
