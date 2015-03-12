@@ -29,9 +29,11 @@
 				navigator.geolocation.getCurrentPosition(function(position) {
 						myLat = position.coords.latitude;
 						myLng = position.coords.longitude;
+						console.log("before call to renderMap(), myLat = " + myLat + " myLng = " + myLng);
+						renderMap();
 					});
-				console.log("before call to renderMap(), myLat = " + myLat + " myLng = " + myLng);
-				renderMap();
+				
+				
 
 			}
 			else {
