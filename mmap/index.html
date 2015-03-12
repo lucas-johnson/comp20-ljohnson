@@ -91,15 +91,15 @@
 			myPin.setMap(map);
 			console.log("myPin created");
 
-			//for(key in converted){
-				
-			//	location = new google.maps.LatLng(converted[key]['lat'], converted[key]['lng']);
-			//	marker = new google.maps.Marker({
-			//		position: location,
-			//		title: converted[key]['login']
-			//	});
-			//	marker.setMap(map);
-			//}
+			for(key in converted){
+				console.log("lat = " converted[key]['lat']);
+				location = new google.maps.LatLng(converted[key]['lat'], converted[key]['lng']);
+				//marker = new google.maps.Marker({
+				//	position: location,
+				//	title: converted[key]['login']
+				//});
+				//marker.setMap(map);
+			}
 		}
 		
 		
