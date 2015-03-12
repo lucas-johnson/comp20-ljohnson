@@ -98,10 +98,18 @@
 			request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			request.onreadystatechange = parseData();
 			xhr.send("login=VanRhoden&lat="+myLat+"&lng="+myLng);
-			
-			console.log("request sent");
-			map = new google.maps.Map(document.getElementById("map-canvas"),  mapOptions);
-			getMyLocation();
+			if(request.status == 1){
+				console.log("sent");			
+			}else if(request.status == 2){
+				console.log("on its way there");
+
+			}else if(request.status == 3){
+				console.log("on its way back")
+			}else{
+				console.log("request complete");
+				map = new google.maps.Map(document.getElementById("map-canvas"),  mapOptions);
+				getMyLocation();
+			}
 		}
 
 	</script>
