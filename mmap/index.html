@@ -93,7 +93,9 @@
 
 			for(key in converted){
 				console.log("lat = " + converted[key]['lat']);
-				location = new google.maps.LatLng(converted[key]['lat'], converted[key]['lng']);
+				console.log("lng = " + converted[key]['lng'])
+				//location = new google.maps.LatLng(converted[key]['lat'], converted[key]['lng']);
+				//me = new google.maps.LatLng(myLat, myLng);
 				//marker = new google.maps.Marker({
 				//	position: location,
 				//	title: converted[key]['login']
