@@ -10,13 +10,69 @@
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"> </script>
 
 	<script> 
+		
+		myLat = 0;
+		myLng = 0;
+		me = new google.maps.LatLng(myLat, myLng);
+
+		mapOptions = {
+  			center: me
+  			zoom: 16
+  		};
+
+		function getMyLocation() {
+			console.log("1. In getMyLocation()");
+			if (navigator.geolocation) { // the navigator.geolocation object is supported on your browser
+				navigator.geolocation.getCurrentPosition(function(position) {
+						myLat = position.coords.latitude;
+						myLng = position.coords.longitude;
+					});
+			}
+			else {
+				alert("Geolocation is not supported by your web browser.  What a shame!");
+			}
+		}
+
+		request = new XMLHttpRequest();
+		request.open("POST", "https://secret-about-box.herokuapp.com/sendLocation", true);
+		request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		request.onreadystatechange = parseData();
+		request.send(login=VanRhoden&lat=myLat&lng=myLng);
+
+		function parseData(){
+			if(request.readyState ==4){
+				if(request.status == 200){
+					converted = JSON.parse(request.responseText);
+				}
+			}
+		}
+
+		function createMarkers(){
+			
+			myPin = new google.maps.Marker({
+				position: me,
+				title: "Here I am"
+			});
+
+			for(key in converted){
+				marker = new google.maps.Marker({
+					position: converted[key]["lat"], converted[key]["lng"]
+					title: converted[key]["login"]
+				});
+			}
+		}
+
+  		function renderMap(){
+  			createMarkers();
+  			map.panTo(me);
+  		}
+		
+		
 		function initialize(){
-			mapOptions = {
-  				center: new google.maps.LatLng(42.4069, -71.1198),
-  				zoom: 16
-  			};
+			
 
 			map = new google.maps.Map(document.getElementById("map-canvas"),  mapOptions);
+			renderMap();
 		}
 
 	</script>
