@@ -58,11 +58,13 @@
 
 		function parseData(){
 			console.log("got data back");
-			if(request.status == 200){
+			if(request.status == 4){
+				if(request.status == 200){
 				console.log("request went through");
 				console.log(responseText);
 				converted = JSON.parse(request.responseText);
-			}
+				}
+			}	
 		}
 
 		function createMarkers(){
@@ -91,11 +93,12 @@
 		function init(){
 			console.log("Inside init()");
 			
-			request = new XMLHttpRequest();
+			request = new XMLHttpRequest(); 
 			request.open("POST", "https://secret-about-box.herokuapp.com/sendLocation", true);
 			request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			request.onreadystatechange = parseData();
 			request.send("login=VanRhoden&lat="+myLat+"&lng="+myLng);
+			
 			if(request.status == 1){
 				console.log("sent");			
 			}else if(request.status == 2){
