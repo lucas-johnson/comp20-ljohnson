@@ -30,8 +30,7 @@
 		function renderMap(){
   			console.log("inside renderMap()");
   			
-  			me = new google.maps.LatLng(myLat, myLng);
-  			map.panTo(me);
+  			
   			
   			request = new XMLHttpRequest(); 
 			request.open("POST", "https://secret-about-box.herokuapp.com/sendLocation", true);
@@ -41,6 +40,9 @@
 			params = "login=VanRhoden&lat=" + myLat + "&lng=" + myLng;
 			request.send(params);
   			//createMarkers;
+
+  			me = new google.maps.LatLng(myLat, myLng);
+  			map.panTo(me);
 
 
   		}
@@ -89,6 +91,7 @@
 			});
 
 			myPin.setMap(map);
+			console.log("myPin created");
 
 			for(key in converted){
 				
