@@ -76,12 +76,13 @@
 
 			myPin.setMap(map);
 
-			//for(key in converted){
-			//	marker = new google.maps.Marker({
-			//		position: converted[key]['lat'], converted[key]['lng'],
-			//		title: converted[key]['login']
-			//	});
-			//}
+			for(key in converted){
+				marker = new google.maps.Marker({
+					position: converted[key]['lat'], converted[key]['lng'],
+					title: converted[key]['login']
+				});
+				marker.setMp(map);
+			}
 		}
 		
 		
