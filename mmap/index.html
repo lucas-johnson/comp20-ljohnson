@@ -124,13 +124,13 @@
 				marker.setMap(map);
 
 				infowindow = new google.maps.InfoWindow({
-      				content: marker.title
+      				content: this.title
   				});
 
-				google.maps.event.addListener(marker, 'click', function() {
+				google.maps.event.addListener(markers, 'click', function() {
 					//haversine(converted[key]['lat'], converted[key]['lng'])
 					//infowindow.setContent(marker.title);
-					infowindow.open(map, marker);
+					infowindow.open(map, this);
 				});
 			}
 
