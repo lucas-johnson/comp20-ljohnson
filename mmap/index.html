@@ -127,7 +127,7 @@
       				content: this.title
   				});
 
-				google.maps.event.addListener(markers, 'click', function() {
+				google.maps.event.addListener(marker, 'click', function() {
 					//haversine(converted[key]['lat'], converted[key]['lng'])
 					//infowindow.setContent(marker.title);
 					infowindow.open(map, this);
