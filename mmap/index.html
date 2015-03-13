@@ -31,14 +31,12 @@
    			return x * Math.PI / 180;
 		}
 
-  		function haversine(lat1, lon1){
+  		function haversine(lat2, lon2){
 
-			var lat2 = myLat; 
-			var lon2 = myLng; 
+			var lat1 = myLat; 
+			var lon1 = myLng;
 
-			lat2Rad = ((lat2 * Math.PI) /180);
-
-			var R = 6371; // km 
+			var R = 3958.76; // miles 
 			//has a problem with the .toRad() method below.
 			var x1 = lat2-lat1;
 			var dLat = toRad(x1);  
@@ -47,10 +45,8 @@
 			var a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon/2) * Math.sin(dLon/2);  
 			var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
 			var d = R * c; 
-			milesConvert = 0.621371;
-
-			distance = (d*milesConvert);
-			return distance;
+	
+			return d;
   		}
 
 		function renderMap(){
@@ -117,23 +113,20 @@
 			infowindow = new google.maps.InfoWindow();
 
 			for(key in converted){
-				//console.log("lat = " + converted[key]['lat']);
-				//console.log("lng = " + converted[key]['lng']);
-				//userLat = converted[key]['lat'];
-				//userLng = converted[key]['lng'];
-				//location = new google.maps.LatLng(userLat, userLng);
 				
-				marker = new google.maps.Marker({
-					position: {lat: converted[key]['lat'], lng: converted[key]['lng']},
-					title: converted[key]['login']
-				});
-				marker.setMap(map);
+				if(converted[key]['title'] != "VanRhoden"){
+					marker = new google.maps.Marker({
+						position: {lat: converted[key]['lat'], lng: converted[key]['lng']},
+						title: converted[key]['login']
+					});
+					marker.setMap(map);
 				
-				google.maps.event.addListener(marker, 'click', function() {
-					miles = haversine(this.position.lat, this.position.lng);
-					infowindow.setContent(this.title + " is " + miles + " away from me");
-					infowindow.open(map, this);
-				});
+					google.maps.event.addListener(marker, 'click', function() {
+						miles = haversine(this.position.lat, this.position.lng);
+						infowindow.setContent(this.title + " is " + miles + " away from me");
+						infowindow.open(map, this);
+					});
+				}
 
 			}
 
