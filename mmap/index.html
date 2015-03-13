@@ -124,13 +124,15 @@
 					title: converted[key]['login']
 				});
 				marker.setMap(map);
-
+				
 				google.maps.event.addListener(marker, 'click', function() {
 					//haversine(converted[key]['lat'], converted[key]['lng'])
-					infowindow.setContent(marker.title);
-					infowindow.open(map, marker);
+					infowindow.setContent(this.title);
+					infowindow.open(map, this);
 				});
+
 			}
+
 
 		}
 		
