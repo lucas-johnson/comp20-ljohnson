@@ -35,7 +35,7 @@
 			var lat1 = myLat; 
 			var lon1 = myLng; 
 
-			lat2Rad = ((lat2 * Math.PI) / 180);
+			lat2Rad = ((lat2 * Math.PI) /180);
 
 			var R = 6371; // km 
 			//has a problem with the .toRad() method below.
@@ -49,6 +49,7 @@
 			milesConvert = 0.621371;
 
 			distance = (d*milesConvert);
+			return distance;
   		}
 
 		function renderMap(){
