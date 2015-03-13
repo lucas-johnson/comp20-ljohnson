@@ -125,7 +125,7 @@
 
 				google.maps.event.addListener(marker, 'click', function() {
 					//haversine(converted[key]['lat'], converted[key]['lng'])
-					infowindow.setContent(marker.title + " distance from me = ");
+					infowindow.setContent(marker.title);
 					infowindow.open(map, marker);
 				});
 			}
