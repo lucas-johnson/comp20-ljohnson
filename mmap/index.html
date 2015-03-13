@@ -27,11 +27,13 @@
   			zoom: 16
   		};
 
-  		function haversine(lat2, lon2){
+  		function haversine(lat, lon){
   			Number.prototype.toRad = function() {
    			return this * Math.PI / 180;
 			}
 
+			lat2 = lat;
+			lon2 = lon;
 			var lat1 = myLat; 
 			var lon1 = myLng; 
 
