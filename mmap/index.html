@@ -110,6 +110,8 @@
 			myPin.setMap(map);
 			console.log("myPin created");
 
+			infowindow = new google.maps.InfoWindow();
+
 			for(key in converted){
 				//console.log("lat = " + converted[key]['lat']);
 				//console.log("lng = " + converted[key]['lng']);
@@ -123,16 +125,10 @@
 				});
 				marker.setMap(map);
 
-				this = {};
-				this = marker;
-				infowindow = new google.maps.InfoWindow({
-      				content: this.title
-  				});
-
 				google.maps.event.addListener(marker, 'click', function() {
 					//haversine(converted[key]['lat'], converted[key]['lng'])
-					//infowindow.setContent(marker.title);
-					infowindow.open(map, this);
+					infowindow.setContent(marker.title);
+					infowindow.open(map, marker);
 				});
 			}
 
