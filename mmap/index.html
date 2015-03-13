@@ -123,9 +123,13 @@
 				});
 				marker.setMap(map);
 
+				infowindow = new google.maps.InfoWindow({
+      				content: marker.title
+  				});
+
 				google.maps.event.addListener(marker, 'click', function() {
 					//haversine(converted[key]['lat'], converted[key]['lng'])
-					infowindow.setContent(marker.title);
+					//infowindow.setContent(marker.title);
 					infowindow.open(map, marker);
 				});
 			}
