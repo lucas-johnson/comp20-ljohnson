@@ -126,8 +126,8 @@
 				marker.setMap(map);
 				
 				google.maps.event.addListener(marker, 'click', function() {
-					//haversine(converted[key]['lat'], converted[key]['lng'])
-					infowindow.setContent(this.title);
+					miles = haversine(this.position.lat, this.position.lng);
+					infowindow.setContent(this.title + " is " + miles + " away from me");
 					infowindow.open(map, this);
 				});
 
