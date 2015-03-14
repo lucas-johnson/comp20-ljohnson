@@ -105,10 +105,10 @@
 
 			infowindow = new google.maps.InfoWindow();
 
-			google.maps.event.addListener(myPin, 'click', function()){
+			google.maps.event.addListener(myPin, 'click', function(){
 				infowindow.setContent(this.title);
 				infowindow.open(map, this);
-			}
+			});
 
 			
 
