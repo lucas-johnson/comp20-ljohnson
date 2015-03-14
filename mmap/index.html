@@ -106,7 +106,7 @@
 			infowindow = new google.maps.InfoWindow();
 
 			google.maps.event.addListener(myPin, 'click', function(){
-				infowindow.setContent(this.title);
+				infowindow.setContent("Here I am!");
 				infowindow.open(map, this);
 			});
 
