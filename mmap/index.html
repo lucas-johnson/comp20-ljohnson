@@ -31,8 +31,10 @@
    			return x * Math.PI / 180;
 		}
 
-  		function haversine(lat2, lon2){
+  		function haversine(markerLat, markerLon){
 
+			var lat2 = markerLat;
+			var lon2 = markerLon;
 			var lat1 = myLat; 
 			var lon1 = myLng;
 			console.log("lat2 = " +lat2+ " lon2 = "+lon2);
