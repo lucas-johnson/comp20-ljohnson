@@ -37,7 +37,6 @@
 			var lon2 = markerLon;
 			var lat1 = myLat; 
 			var lon1 = myLng;
-			console.log("lat2 = " +lat2+ " lon2 = "+lon2);
 
 			var R = 3958.76; // miles 
 			//has a problem with the .toRad() method below.
@@ -56,8 +55,7 @@
   		}
 
 		function renderMap(){
-  			console.log("inside renderMap()");
-  			
+  
   			me = new google.maps.LatLng(myLat, myLng);
   			map.panTo(me);
 
@@ -71,10 +69,8 @@
 
 
   		function parseData(){
-			console.log("got data back");
 			if(request.readyState == 4){
 				if(request.status == 200){
-				console.log("request went through");
 				converted = JSON.parse(request.responseText);
 				console.log(converted);
 				createMarkers();
@@ -83,19 +79,13 @@
 		}
 
 		function getMyLocation() {
-			console.log("1. In getMyLocation()");
 			if (navigator.geolocation) { // the navigator.geolocation object is supported on your browser
-				console.log("geolocation supported");
 				navigator.geolocation.getCurrentPosition(function(position) {
 					myLat = position.coords.latitude;
 					myLng = position.coords.longitude;
-					console.log("before call to renderMap(), myLat = " + myLat + " myLng = " + myLng);
 					
 					renderMap();
 				});
-				
-				
-
 			}
 			else {
 				alert("Geolocation is not supported by your web browser.  What a shame!");
@@ -106,15 +96,17 @@
 
 		function createMarkers(){
 			
-			console.log("inside createMarkers()");
 			myPin = new google.maps.Marker({
 				position: me,
-				title: "Here I am",
+				title: "VanRhoden";
 				icon: image
 			});
 
 			myPin.setMap(map);
-			console.log("myPin created");
+			google.maps.event.addListener(myPin, 'click', function(){
+				infowindow.setContent(this.title);
+				infowindow.open(map, this);
+			}
 
 			infowindow = new google.maps.InfoWindow();
 
@@ -128,7 +120,6 @@
 					marker.setMap(map);
 				
 					google.maps.event.addListener(marker, 'click', function() {
-						console.log(this.position.lat() + " = lat inside create Markers");
 						miles = haversine(this.position.lat(), this.position.lng());
 						infowindow.setContent(this.title + " is " + miles + " miles away from me");
 						infowindow.open(map, this);
