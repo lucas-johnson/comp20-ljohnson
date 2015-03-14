@@ -101,14 +101,16 @@
 				title: "VanRhoden",
 				icon: image
 			});
-
 			myPin.setMap(map);
+
+			infowindow = new google.maps.InfoWindow();
+			
 			google.maps.event.addListener(myPin, 'click', function(){
 				infowindow.setContent(this.title);
 				infowindow.open(map, this);
 			}
 
-			infowindow = new google.maps.InfoWindow();
+			
 
 			for(key in converted){
 				
