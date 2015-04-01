@@ -6,15 +6,21 @@
 	<title>Captain's Log</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script>
-	 	//$("document").ready(function()){
-	 		
-	 	//};
- 	$(document).keypress(function(e) {
-    	if(e.which == 13) {
-    		now = new Date();
-	 		$("#log").prepend("<p>" now + ' - ' + $("#msg").val() "<p>");
-    	}
-	});
+	 	$("document").ready(function(){
+	 		for(key in localStorage){
+	 			if(localStorage.getItem(key) != null){
+	 				$("#log").prepend("<p>" + localStorage.getItem(key) +"</p");
+	 			}
+	 		}
+	 	});
+ 		
+ 		$(document).keypress(function(e) {
+    		if(e.which == 13) {
+    			now = new Date();
+    			localStorage.setItem(now,"" + now + " - " + $("#msg").val() + "")
+	 			$("#log").prepend("<p>" + now + ' - ' + $("#msg").val() + "<p>");
+    		}
+		});
 	 	
 	</script>
 </head>
